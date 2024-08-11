@@ -9,3 +9,7 @@ To ensure the best experience with this project, please follow these prerequisit
 #### Project Strategy
 - The project is designed using object-oriented principles to improve code readability and enhance understanding of functionality.
 - It utilizes the Python framework Streamlit, which allows for the creation of interactive web applications with ease.
+
+
+https://github.com/user-attachments/assets/69bf8c38-e8d3-4738-9640-3a2d2785c870
+
