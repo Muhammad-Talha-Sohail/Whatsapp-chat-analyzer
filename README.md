@@ -4,7 +4,7 @@ This project focuses on sentiment analysis techniques and is capable of analyzin
 #### **Note**
 To ensure the best experience with this project, please follow these prerequisites:
 - The chat data must be in text format.
-- Currently, the project performs best with chat data in a 24-hour time format. Before exporting the chat data, ensure that the time format is set to 24-hour. (In the future, I plan to enhance the project to support 12-hour time format data with optimal performance.)
+- Currently, the project performs best with chat data in a 24-hour time format. 
 
 #### Project Strategy
 - The project is designed using object-oriented principles to improve code readability and enhance understanding of functionality.
