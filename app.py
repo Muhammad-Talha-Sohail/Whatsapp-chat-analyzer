@@ -76,7 +76,7 @@ if (uploaded_file):
            palette_color = sns.color_palette('bright')
            y = np.array(emoji_list['Total'].head())
            fig,ax = plt.subplots()
-           ax.pie(y,labels=emoji_list['emoji'].head(),autopct=f"%0.2f",startangle=45,colors=palette_color)
+           ax.pie(y,labels=emoji_list['emoji'].head(),autopct=f"%0.2f%%",startangle=45,colors=palette_color)
            plt.legend(title='Emojis')
            st.pyplot(fig)
          

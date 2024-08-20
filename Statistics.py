@@ -28,7 +28,7 @@ class Stats:
     
     def overall_desc(self):
         df2 = self.df[self.df['user'] != 'group_notification']
-        busy = df2.groupby(['user']).agg({"message":'count'})
+        busy = df2.groupby(['user']).agg({"message":'count'})  # [('Talha',50),("harry",676)]  
         X = [i for i in busy['message'].keys()]
         Y = [i for  i in busy['message'].values]
         df2 = pd.DataFrame({
@@ -113,3 +113,5 @@ class Stats:
     def activity_map(self):
         table = pd.pivot_table(self.df,index='day_name',columns='period',values='message', aggfunc='count').fillna(0)     
         return table   
+
+
