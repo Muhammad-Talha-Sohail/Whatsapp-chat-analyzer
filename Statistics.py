@@ -1,12 +1,12 @@
 from urlextract import URLExtract
 import pandas as pd
-from wordcloud import WordCloud, STOPWORDS
+from wordcloud import WordCloud
 import emoji
 
 
 
 
-with open('stop_hinglish.txt','r') as f:
+with open('E:\CODING FILE\JN\Projects\Whatsapp-analyzer\stop_hinglish.txt','r') as f:
       stopwords = f.read()
       f.close()    
 
@@ -43,7 +43,7 @@ class Stats:
     
 
     def wordCloud_generator(self):                         
-           df2 = self.df[(self.df['user'] != 'group_notification') ]
+           df2 = self.df[self.df['user'] != 'group_notification' ]
            df2 =df2[df2['message']!='<media omitted>\n'] 
            lst = []
            for i in df2.message:
@@ -52,7 +52,7 @@ class Stats:
            wordcloud = WordCloud(width = 800, height = 800,
                 background_color ='white',
                  min_font_size = 10).generate(str(words))
-           return wordcloud,self.user
+           return wordcloud
     
     
     def most_common_word(self):
@@ -87,7 +87,7 @@ class Stats:
          return timeline    
      
     def daily_timeline_analysis(self):
-           daily_timeline = self.df.groupby(['only_date']).agg({"message":'count'}).reset_index()    
+           daily_timeline = self.df.groupby(['date']).agg({"message":'count'}).reset_index()    
            return daily_timeline
     def emoji_extractor(self):
           df2 = self.df[(self.df['user'] != 'group_notification') ]

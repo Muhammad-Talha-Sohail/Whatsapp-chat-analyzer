@@ -20,32 +20,32 @@ if (uploaded_file):
     members = user(data)
     selected_user = st.sidebar.selectbox("Show analysis wrt",members)
     if  st.sidebar.button("Show Analysis"):
-      st.title(selected_user+" Chat Analyze")
-      fetch_user_data = user_data(selected_user,data)
-      st.dataframe( fetch_user_data)
+        st.title(selected_user+" Chat Analyze")
+        fetch_user_data = user_data(selected_user,data)
+        st.dataframe( fetch_user_data)
       
-   #  Class instance
-      user_detail  = Stats(selected_user,fetch_user_data)
+        #  Class instance
+        user_detail  = Stats(selected_user,fetch_user_data)
       
-      col1,col2,col3 = st.columns(3) 
-      with col1:
-         st.header('Total Messages')
-         st.title(fetch_user_data.shape[0])
-      with col2:
-         st.header('Media shared')
-         media_num  = user_detail.fetch_media()
-         st.title(media_num)   
+        col1,col2,col3 = st.columns(3) 
+        with col1:
+          st.header('Total Messages')
+          st.title(fetch_user_data.shape[0])
+        with col2:
+          st.header('Media shared')
+          media_num  = user_detail.fetch_media()
+          st.title(media_num)   
 
-      with col3:
-         st.header('Links shared')
+        with col3:
+           st.header('Links shared')
          
-         links_num =  user_detail.fetch_links()
-         st.title(links_num)
+           links_num =  user_detail.fetch_links()
+           st.title(links_num)
 
 
     if (selected_user == 'Overall') :
       # print(type(user_detail))
-      if (user_detail):
+       if (user_detail):
          col1,col2 = st.columns(2)
          with col1:
             st.title("Chart")
@@ -104,17 +104,18 @@ if (uploaded_file):
       plt.xticks(rotation='vertical')
       st.pyplot(fig)
 
-          # Daily Timeline
+         #  Daily Timeline
       d_timeline = user_detail.daily_timeline_analysis()
       st.header('Daily Time analysis')
       fig,ax = plt.subplots()
-      ax.plot(d_timeline['only_date'], d_timeline['message'],color='#D95F59')
+      ax.plot(d_timeline['date'], d_timeline['message'],color='#D95F59')
       plt.xticks(rotation='vertical')
       st.pyplot(fig)
-
+     
      # Word Cloud 
-      word_cloud,title = user_detail.wordCloud_generator()
-      st.subheader(f"Word cloud")
+      word_cloud = user_detail.wordCloud_generator()
+
+      st.subheader(f"Word cloud ")
       fig,ax = plt.subplots()
       ax.imshow(word_cloud)
       st.pyplot(fig)
