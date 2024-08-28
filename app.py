@@ -128,6 +128,5 @@ if (uploaded_file):
       ax = sns.heatmap(table)
       st.pyplot(fig)
 
-     
     except :
        print('error')
