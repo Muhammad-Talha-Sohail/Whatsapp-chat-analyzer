@@ -6,7 +6,7 @@ import emoji
 
 
 
-with open('E:\CODING FILE\JN\Projects\Whatsapp-analyzer\stop_hinglish.txt','r') as f:
+with open('stop_hinglish.txt','r') as f:
       stopwords = f.read()
       f.close()    
 
